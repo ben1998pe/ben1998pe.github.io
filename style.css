@@ -1,0 +1,63 @@
+/* Fondo y estructura */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Courier New', monospace;
+  background: black;
+  overflow: hidden;
+  position: relative;
+}
+
+#matrixCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Tarjeta central */
+.profile-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.75);
+  border: 2px solid #00ff99;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  color: #00ffcc;
+  box-shadow: 0 0 12px #00ff99;
+  width: 90%;
+  max-width: 480px;
+}
+
+/* Estilos de texto */
+.profile-card h1 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+}
+
+.profile-card p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Enlaces */
+.links a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 0.5rem 1rem;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  background: #00ffcc;
+  color: black;
+}
