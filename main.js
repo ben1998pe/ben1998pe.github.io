@@ -66,14 +66,17 @@ const fullTitle = "Ben oscco – Desarrollador Web";
 let current = "";
 let i = 0;
 let typingInterval;
+let titleVisible = true;
 
 function typeTitle() {
+  if (!titleVisible) return;
+
   if (i < fullTitle.length) {
     current += fullTitle[i++];
     document.title = current + " █";
     typingInterval = setTimeout(typeTitle, 80);
   } else {
-    setTimeout(() => {
+    typingInterval = setTimeout(() => {
       i = 0;
       current = "";
       typeTitle();
@@ -83,17 +86,16 @@ function typeTitle() {
 
 typeTitle();
 
-// 🎯 Detectar si la pestaña está oculta o activa
-let originalTitle = document.title;
-
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
-    clearTimeout(typingInterval); // pausa el typewriter
+    titleVisible = false;
+    clearTimeout(typingInterval);
     document.title = "⏳ Esperando tu regreso...";
   } else {
+    titleVisible = true;
     current = "";
     i = 0;
-    typeTitle(); // reinicia animación al volver
+    typeTitle();
   }
 });
 
