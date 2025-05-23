@@ -102,3 +102,43 @@ body, html {
 .projects a:hover {
   color: #ffffff;
 }
+/* Pantalla de transición tipo Matrix */
+.matrix-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.matrix-transition.show {
+  opacity: 1;
+  pointer-events: all;
+  animation: matrixFlash 1s linear;
+}
+
+@keyframes matrixFlash {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Botón regresar */
+#backBtn {
+  margin-top: 2rem;
+  background: transparent;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#backBtn:hover {
+  background: #00ffcc;
+  color: black;
+}

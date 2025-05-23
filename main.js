@@ -1,4 +1,4 @@
-// Efecto Matrix canvas
+// Efecto Matrix
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -14,7 +14,6 @@ const drops = Array.from({ length: columns }, () => 1);
 function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-
   ctx.fillStyle = "#00ff99";
   ctx.font = fontSize + "px monospace";
 
@@ -32,12 +31,39 @@ function draw() {
 
 setInterval(draw, 33);
 
-// Mostrar sección de proyectos al hacer clic
+// Transiciones
 const showProjectsBtn = document.getElementById("showProjectsBtn");
+const backBtn = document.getElementById("backBtn");
 const projectsSection = document.getElementById("proyectos");
+const profileCard = document.getElementById("profileCard");
+const transition = document.getElementById("matrixTransition");
+
+function showSection(target) {
+  transition.classList.add("show");
+  setTimeout(() => {
+    profileCard.style.display = "none";
+    projectsSection.classList.add("visible");
+    transition.classList.remove("show");
+    projectsSection.scrollIntoView({ behavior: "smooth" });
+  }, 1000);
+}
+
+function goBack() {
+  transition.classList.add("show");
+  setTimeout(() => {
+    projectsSection.classList.remove("visible");
+    profileCard.style.display = "block";
+    transition.classList.remove("show");
+    profileCard.scrollIntoView({ behavior: "smooth" });
+  }, 1000);
+}
 
 showProjectsBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  projectsSection.classList.add("visible");
-  projectsSection.scrollIntoView({ behavior: "smooth" });
+  showSection();
+});
+
+backBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  goBack();
 });

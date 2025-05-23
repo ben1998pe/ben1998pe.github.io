@@ -9,7 +9,10 @@
 <body>
   <canvas id="matrixCanvas"></canvas>
 
-  <div class="profile-card">
+  <!-- Transición hacker estilo Matrix -->
+  <div class="matrix-transition" id="matrixTransition"></div>
+
+  <div class="profile-card" id="profileCard">
     <h1>Hola, soy Ben 👨‍💻</h1>
     <p>Desarrollador Web • WordPress • SEO • Python • JS</p>
     <div class="links">
@@ -19,7 +22,6 @@
     </div>
   </div>
 
-  <!-- Proyectos ocultos al inicio -->
   <section class="projects" id="proyectos">
     <h2>💼 Proyectos Destacados</h2>
     <ul>
@@ -35,6 +37,7 @@
       <li><a href="https://github.com/ben1998pe/walmart-scraper" target="_blank">🛒 Walmart Scraper</a></li>
       <li><a href="https://github.com/ben1998pe/wordpress-plugin-contact-form" target="_blank">✉️ Contact Form Plugin</a></li>
     </ul>
+    <button id="backBtn">🔙 Regresar</button>
   </section>
 
   <script src="main.js"></script>
