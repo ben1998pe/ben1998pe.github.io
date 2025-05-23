@@ -60,3 +60,23 @@ backBtn.addEventListener("click", (e) => {
     }, 50);
   }, 300);
 });
+
+const fullTitle = "Ben oscco – Desarrollador Web";
+let current = "";
+let i = 0;
+
+function typeTitle() {
+  if (i < fullTitle.length) {
+    current += fullTitle[i++];
+    document.title = current + " █";
+    setTimeout(typeTitle, 150);
+  } else {
+    setTimeout(() => {
+      i = 0;
+      current = "";
+      typeTitle();
+    }, 2000); // reinicia después de 2s
+  }
+}
+
+typeTitle();
