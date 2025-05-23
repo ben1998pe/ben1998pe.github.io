@@ -61,3 +61,43 @@ body, html {
   background: #00ffcc;
   color: black;
 }
+
+.projects {
+  z-index: 1;
+  position: relative;
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #00ff99;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00ff99;
+  color: #00ffcc;
+  text-align: left;
+}
+
+.projects h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #00ffcc;
+}
+
+.projects ul {
+  list-style: none;
+  padding: 0;
+}
+
+.projects li {
+  margin: 0.5rem 0;
+}
+
+.projects a {
+  color: #00ffcc;
+  text-decoration: none;
+  border-bottom: 1px dashed #00ffcc;
+  transition: color 0.3s;
+}
+
+.projects a:hover {
+  color: #ffffff;
+}
