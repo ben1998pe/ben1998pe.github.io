@@ -69,7 +69,7 @@ function typeTitle() {
   if (i < fullTitle.length) {
     current += fullTitle[i++];
     document.title = current + " █";
-    setTimeout(typeTitle, 150);
+    setTimeout(typeTitle, 80);
   } else {
     setTimeout(() => {
       i = 0;
