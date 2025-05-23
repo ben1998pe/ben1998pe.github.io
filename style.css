@@ -1,11 +1,10 @@
-/* Fondo y estructura */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Courier New', monospace;
   background: black;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -16,12 +15,9 @@ body, html {
   z-index: 0;
 }
 
-/* Tarjeta central */
+/* Tarjeta de presentación */
 .profile-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   z-index: 1;
   background: rgba(0, 0, 0, 0.75);
   border: 2px solid #00ff99;
@@ -32,14 +28,14 @@ body, html {
   box-shadow: 0 0 12px #00ff99;
   width: 90%;
   max-width: 480px;
+  margin: 5rem auto 2rem;
 }
 
-/* Estilos de texto */
+/* Texto */
 .profile-card h1 {
   margin: 0 0 1rem;
   font-size: 2rem;
 }
-
 .profile-card p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
@@ -56,13 +52,17 @@ body, html {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-
 .links a:hover {
   background: #00ffcc;
   color: black;
 }
 
+/* Sección de proyectos (inicialmente oculta) */
 .projects {
+  display: none;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
   z-index: 1;
   position: relative;
   max-width: 720px;
@@ -75,29 +75,30 @@ body, html {
   color: #00ffcc;
   text-align: left;
 }
+.projects.visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .projects h2 {
   text-align: center;
   margin-bottom: 1rem;
   color: #00ffcc;
 }
-
 .projects ul {
   list-style: none;
   padding: 0;
 }
-
 .projects li {
   margin: 0.5rem 0;
 }
-
 .projects a {
   color: #00ffcc;
   text-decoration: none;
   border-bottom: 1px dashed #00ffcc;
   transition: color 0.3s;
 }
-
 .projects a:hover {
   color: #ffffff;
 }

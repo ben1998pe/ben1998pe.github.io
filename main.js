@@ -1,3 +1,4 @@
+// Efecto Matrix canvas
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -30,3 +31,13 @@ function draw() {
 }
 
 setInterval(draw, 33);
+
+// Mostrar sección de proyectos al hacer clic
+const showProjectsBtn = document.getElementById("showProjectsBtn");
+const projectsSection = document.getElementById("proyectos");
+
+showProjectsBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  projectsSection.classList.add("visible");
+  projectsSection.scrollIntoView({ behavior: "smooth" });
+});
