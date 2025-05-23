@@ -1,4 +1,3 @@
-// Efecto Matrix
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -12,8 +11,9 @@ const columns = canvas.width / fontSize;
 const drops = Array.from({ length: columns }, () => 1);
 
 function draw() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+
   ctx.fillStyle = "#00ff99";
   ctx.font = fontSize + "px monospace";
 
@@ -21,7 +21,7 @@ function draw() {
     const char = charArray[Math.floor(Math.random() * charArray.length)];
     ctx.fillText(char, i * fontSize, drops[i] * fontSize);
 
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
       drops[i] = 0;
     }
 
@@ -29,41 +29,34 @@ function draw() {
   }
 }
 
-setInterval(draw, 33);
+setInterval(draw, 25);
 
-// Transiciones
+// Transición entre secciones
 const showProjectsBtn = document.getElementById("showProjectsBtn");
 const backBtn = document.getElementById("backBtn");
-const projectsSection = document.getElementById("proyectos");
 const profileCard = document.getElementById("profileCard");
-const transition = document.getElementById("matrixTransition");
-
-function showSection(target) {
-  transition.classList.add("show");
-  setTimeout(() => {
-    profileCard.style.display = "none";
-    projectsSection.classList.add("visible");
-    transition.classList.remove("show");
-    projectsSection.scrollIntoView({ behavior: "smooth" });
-  }, 1000);
-}
-
-function goBack() {
-  transition.classList.add("show");
-  setTimeout(() => {
-    projectsSection.classList.remove("visible");
-    profileCard.style.display = "block";
-    transition.classList.remove("show");
-    profileCard.scrollIntoView({ behavior: "smooth" });
-  }, 1000);
-}
+const projects = document.getElementById("proyectos");
 
 showProjectsBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  showSection();
+  profileCard.style.opacity = 0;
+
+  setTimeout(() => {
+    profileCard.style.display = "none";
+    projects.classList.add("visible");
+    projects.scrollIntoView({ behavior: "smooth" });
+  }, 500);
 });
 
 backBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  goBack();
+  projects.classList.remove("visible");
+
+  setTimeout(() => {
+    profileCard.style.display = "block";
+    setTimeout(() => {
+      profileCard.style.opacity = 1;
+      profileCard.scrollIntoView({ behavior: "smooth" });
+    }, 50);
+  }, 300);
 });
