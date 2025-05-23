@@ -37,13 +37,9 @@ body, html {
 .projects.visible {
   display: block;
   opacity: 1;
+  transform: translate(-50%, -50%);
 }
 
-.projects.visible {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .projects h2 {
   text-align: center;
