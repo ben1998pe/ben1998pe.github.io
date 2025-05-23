@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .cursor {
+      fill: #00ff99;
+      font-family: 'Courier New', monospace;
+      font-size: 65px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+  </style>
+  <text x="10" y="70" class="cursor">&gt;_</text>
+</svg>
